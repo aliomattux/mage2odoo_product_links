@@ -1,0 +1,37 @@
+<openerp>
+    <data>
+         <act_window name="Sell Product Links"
+            res_model="mage.sale.order.link"
+            src_model="sale.order.line"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="action_sell_product_links"/>
+
+        <record id="wizard_view_mage_produt_links" model="ir.ui.view">
+            <field name="name">Sell Product Links</field>
+            <field name="model">mage.sale.order.link</field>
+            <field name="arch" type="xml">
+                <form>
+		    <group>
+		        <field name="product" readonly="1"/>
+			<field name="sale_order_line" invisible="1" />
+		    </group>
+		    <group string="Details">
+			<field name="lines" nolabel="1" widget="one2many_list">
+			    <tree editable="top">
+				<field name="add" />
+			        <field name="product" readonly="1" />
+				<field name="link_type" readonly="1" />
+			        <field name="quantity" />
+			    </tree>
+			</field>
+		    </group>
+		   <group>
+			<button name="add_items_to_sale" string="Add Items" type="object" />
+		   </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

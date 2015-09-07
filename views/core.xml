@@ -1,0 +1,14 @@
+<openerp>
+    <data>
+        <record id="view_mage_setup_links_form" model="ir.ui.view">
+            <field name="name">Mage Setup Links Form</field>
+            <field name="model">mage.setup</field>
+	    <field name="inherit_id" ref="mage2odoo.view_mage_setup_form" />
+            <field name="arch" type="xml">
+		<group string="Products" position="inside" >
+		    <field name="import_links_with_products" />
+		</group>
+	    </field>
+	</record>
+    </data>
+</openerp>

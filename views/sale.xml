@@ -1,0 +1,17 @@
+<openerp>
+    <data>
+
+        <record id="view_mage_links_sale_form" model="ir.ui.view">
+            <field name="name">Mage Product Links Sale Form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <data>
+		    <xpath expr="//field[@name='order_line']/tree//field[@name='product_id']" position="before">
+			<button icon="terp-accessories-archiver" type="action" name="%(action_sell_product_links)d" />
+		    </xpath>
+		</data>
+	    </field>
+	</record>
+    </data>
+</openerp>

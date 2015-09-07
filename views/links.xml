@@ -1,0 +1,53 @@
+<openerp>
+    <data>
+	<record id="view_mage_product_links" model="ir.ui.view">
+	    <field name="name">Mage Product Links Tree</field>
+	    <field name="model">product.link</field>
+	    <field name="arch" type="xml">
+		<tree>
+		    <field name="product_tmpl_id" />
+		    <field name="linked_product" />
+		    <field name="link_type" />
+		</tree>
+	    </field>
+	</record>
+
+        <record id="view_mage_product_view_links" model="ir.ui.view">
+            <field name="name">Mage Product View Link</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="mage2odoo.mage_core_configurable_menu" />
+            <field name="arch" type="xml">
+		<page string="Magento" position="after" >
+		    <page string="Links">
+			<field name="product_links" >
+			    <tree string="Links">
+				<field name="linked_product" />
+				<field name="link_type" />
+			    </tree>
+			</field>
+		    </page>
+		</page>
+            </field>
+        </record>
+
+        <record id="action_product_link" model="ir.actions.act_window">
+            <field name="name">Product Links</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.link</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_mage_product_links"/>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+		Product Links
+              </p><p>
+		Stuff
+              </p>
+            </field>
+        </record>
+
+        <menuitem action="action_product_link" id="menu_product_links"
+            parent="stock.menu_stock_product"
+            sequence="5"/>
+    </data>
+</openerp>
